@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <h2>{{ message.split('').reverse().join('') }}</h2> -->
+        <div class="product">
+            <div class="product-image">
+                <img :src="image" :alt="masker_mahal">
+            </div>
+            <div class="product-info">
+                <h1>{{ product }}</h1>
+                <p>hallo my name is {{ firstName + ' ' + lastName }}, I want to tell u about {{ desc }}</p>
+                <a :href="link">translate to english</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
