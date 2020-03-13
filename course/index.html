@@ -65,6 +65,24 @@
             <p>Cart({{ cart.length }})</p>
         </div>
         <product-detail></product-detail>
+        <div>
+            <h2>Reviews</h2>
+            <p v-if="!reviews.length">there are no reviews yet</p>
+            <ul>
+                <li v-for="review in reviews">
+                    <p>{{ review.name }}</p>
+                    <p>Rating : {{ review.rating }}</p>
+                    <p>{{ review.review }}</p>
+                </li>
+            </ul>
+            <p v-if="errors.length">
+                <b>Please correct the following error(s) : </b>
+                <ul>
+                    <li v-for="error in errors">{{ error }}</li>
+                </ul>
+            </p>
+        </div>
+        <product-review @review-submitted="addReview"></product-review>
 
     </div>
 
