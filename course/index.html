@@ -8,54 +8,59 @@
 </head>
 
 <body>
+
     <div id="app">
+
+        <!-- todo  without use component -->
         <!-- <h2>{{ message.split('').reverse().join('') }}</h2> -->
-        <div class="product">
-            <div class="product-image">
-                <img :src="image" :alt="masker_mahal">
-            </div>
-            <div class="product-info">
+        <!-- <div class="product"> -->
+        <!-- <div class="product-image"> -->
+        <!-- <img :src="image" :alt="masker_mahal"> -->
+        <!-- </div> -->
+        <!-- <div class="product-info"> -->
 
-                <!--* conditional rendering -->
-                <!-- ! contoh 1 -->
-                <!-- <p v-show="inStock">In Stock</!-->
-                <!-- <p v-if="inventory > 10">In Stock </p> -->
-                <!-- <p v-else-if="inventory <= 10 && inventory > 0">Almost Sold Out!</p> -->
-                <!-- <p v-else>Out Of Stock</p> -->
-                <!-- ! contoh 2 -->
-                <p v-if="inStock">In Stock </p>
-                <p v-else :class="{ outOfStock : !inStock }">Out Of Stock</p>
+        <!--* conditional rendering -->
+        <!-- ! contoh 1 -->
+        <!-- <p v-show="inStock">In Stock</!-->
+        <!-- <p v-if="inventory > 10">In Stock </p> -->
+        <!-- <p v-else-if="inventory <= 10 && inventory > 0">Almost Sold Out!</p> -->
+        <!-- <p v-else>Out Of Stock</p> -->
+        <!-- ! contoh 2 -->
+        <!-- <p v-if="inStock">In Stock </p> -->
+        <!-- <p v-else :class="{ outOfStock : !inStock }">Out Of Stock</p> -->
+        <!-- <p>Shipping : {{ shipping }}</p> -->
 
-                <!--* interpolation -->
-                <h1>{{ title }}</h1>
-                <!-- <p>hallo my name is {{ firstName + ' ' + lastName }}, I want to tell u about {{ desc }}</p> -->
+        <!--* interpolation -->
+        <!-- <h1>{{ title }}</h1> -->
+        <!-- <p>hallo my name is {{ firstName + ' ' + lastName }}, I want to tell u about {{ desc }}</p> -->
 
-                <!--* attribute binding -->
-                <!-- <a :href=" link">translate to english</a> -->
+        <!--* attribute binding -->
+        <!-- <a :href=" link">translate to english</a> -->
 
-                <!--* list rendering, Class & Style Binding-->
-                <ul>
-                    <li v-for="detail in details">{{ detail }}</li>
-                </ul>
-                <div class="color-box" v-for="(variant, index) in variants" :key="variant.variantId"
-                    :style="{ backgroundColor: variant.variantColor }" @mouseover="updateProduct(index)">
-                    <p>{{ variant.variantColor }}</p>
-                </div>
+        <!--* list rendering, Class & Style Binding -->
+        <!-- <ul> 
+            <li v-for="detail in details">{{ detail }}</li>
+        </ul> -->
+        <!-- <div class="color-box" v-for="(variant, index) in variants" :key="variant.variantId" :style="{ backgroundColor: variant.variantColor }" @mouseover="updateProduct(index)"> -->
+        <!-- <p>{{ variant.variantColor }}</p> -->
+        <!-- </div> -->
 
-                <!--* event handling -->
-                <div class="cart">
-                    <p>Cart({{ cart }})</p>
-                </div>
-                <!--! cara 1 -->
-                <!-- <button v-on:click="cart += 1">Add To Cart</button> -->
-                <!--! cara 2 -->
-                <button v-on:click="addToCart" :disabled="!inStock" :class="{ disableButton: !inStock }">Add
-                    To
-                    Cart</button>&nbsp;
-                <button v-on:click="cancelToCart">Cancel</button>
+        <!--* event handling -->
+        <!-- <div class="cart">
+            <p>Cart({{ cart }})</p>
+        </div> -->
+        <!--! cara 1 -->
+        <!-- <button v-on:click="cart += 1">Add To Cart</button> -->
+        <!--! cara 2 -->
+        <!-- <button v-on:click="addToCart" :disabled="!inStock" :class="{ disableButton: !inStock }">Add To Cart</button>&nbsp; -->
+        <!-- <button v-on:click="cancelToCart">Cancel</button> -->
+        <!-- </div> -->
+        <!-- </div> -->
 
-            </div>
-        </div>
+
+        <!-- todo  use component -->
+        <product :premium="premium"></product>
+
     </div>
 
     <script src="https://unpkg.com/vue"></script>
