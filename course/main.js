@@ -3,6 +3,7 @@
 /* 2. Attribute Binding */
 /* 3. Conditional Rendering */
 /* 4. List Rendering */
+/* 5. event handling */
 
 
 
@@ -25,12 +26,27 @@ var app = new Vue({
         ],
         variants: [{
                 variantId: 2238,
-                variantColor: "green"
+                variantColor: "green",
+                variantImage: "./assets/masker2.jpg"
             },
             {
                 variantId: 2235,
-                variantColor: "blue"
+                variantColor: "blue",
+                variantImage: "./assets/masker3.jpg"
             }
-        ]
+        ],
+        cart: 0
+    },
+    methods: {
+        addToCart() {
+            this.cart += 1
+        },
+        cancelToCart() {
+            if (this.cart > 0)
+                this.cart -= 1
+        },
+        updateProduct(variantImage) {
+            this.image = variantImage;
+        }
     }
 });

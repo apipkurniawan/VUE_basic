@@ -22,9 +22,11 @@
                 <p v-else-if="inventory <= 10 && inventory > 0">Almost Sold Out!</p>
                 <p v-else>Out Of Stock</p>
 
-                <!-- attribute binding -->
+                <!-- interpolation -->
                 <h1>{{ product }}</h1>
                 <p>hallo my name is {{ firstName + ' ' + lastName }}, I want to tell u about {{ desc }}</p>
+
+                <!-- attribute binding -->
                 <a :href="link">translate to english</a>
 
                 <!-- list rendering -->
@@ -32,8 +34,18 @@
                     <li v-for="detail in details">{{ detail }}</li>
                 </ul>
                 <div v-for="variant in variants" :key="variant.variantId">
-                    <p>{{ variant.variantColor }}</p>
+                    <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
                 </div>
+
+                <!-- event handling -->
+                <div class="cart">
+                    <p>Cart({{ cart }})</p>
+                </div>
+                <!-- cara 1 -->
+                <!-- <button v-on:click="cart += 1">Add To Cart</button> -->
+                <!-- cara 2 -->
+                <button v-on:click="addToCart">Add To Cart</button>&nbsp;
+                <button v-on:click="cancelToCart">Cancel</button>
 
             </div>
         </div>
