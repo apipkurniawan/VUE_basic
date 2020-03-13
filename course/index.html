@@ -59,7 +59,12 @@
 
 
         <!-- todo  use component -->
-        <product :premium="premium"></product>
+        <product :premium="premium" @add-to-cart="updateCart" @cancel-to-cart="cancelCart"></product>
+        <div class="cart">
+            <p>Cart({{ cart }})</p>
+            <p>Cart({{ cart.length }})</p>
+        </div>
+        <product-detail></product-detail>
 
     </div>
 

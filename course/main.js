@@ -7,9 +7,17 @@
 /* 6. Class & Style Binding */
 /* 7. Computed Properties */
 /* 8. Components */
+/* 9. communicating events */
+/* 10. forms */
 
 
 
+// child component
+Vue.component('product-detail', {
+    template: `
+        <p>ini comoponent product detail</p>
+    `
+});
 
 // child component
 Vue.component('product', {
@@ -33,9 +41,6 @@ Vue.component('product', {
                     <p>{{ variant.variantColor }}</p>
                 </div>
 
-                <div class="cart">
-                    <p>Cart({{ cart }})</p>
-                </div>
                 <button v-on:click="addToCart" :disabled="!inStock" :class="{ disableButton: !inStock }">Add To Cart</button>&nbsp;
                 <button v-on:click="cancelToCart">Cancel</button>
 
@@ -83,16 +88,14 @@ Vue.component('product', {
                     variantQuantity: 0
                 }
             ],
-            cart: 0
         }
     },
     methods: {
         addToCart() {
-            this.cart += 1
+            this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId)
         },
         cancelToCart() {
-            if (this.cart > 0)
-                this.cart -= 1
+            this.$emit('cancel-to-cart')
         },
         updateProduct(index) {
             this.selectedVariant = index;
@@ -107,6 +110,11 @@ Vue.component('product', {
             return this.variants[this.selectedVariant].variantImage;
         },
         inStock() {
+            // if (this.quantity > 0) {
+            //     return true;
+            // } else {
+            //     return false;
+            // }
             return this.variants[this.selectedVariant].variantQuantity;
         },
         shipping() {
@@ -123,6 +131,15 @@ Vue.component('product', {
 var app = new Vue({
     el: '#app',
     data: {
-        premium: true
+        premium: true,
+        cart: []
+    },
+    methods: {
+        updateCart(id) {
+            this.cart.push(id)
+        },
+        cancelCart() {
+            this.cart.pop()
+        }
     }
 });
