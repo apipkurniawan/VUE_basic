@@ -15,9 +15,26 @@
                 <img :src="image" :alt="masker_mahal">
             </div>
             <div class="product-info">
+
+                <!-- conditional rendering -->
+                <p v-show="inStock">In Stock</p>
+                <p v-if="inventory > 10">In Stock </p>
+                <p v-else-if="inventory <= 10 && inventory > 0">Almost Sold Out!</p>
+                <p v-else>Out Of Stock</p>
+
+                <!-- attribute binding -->
                 <h1>{{ product }}</h1>
                 <p>hallo my name is {{ firstName + ' ' + lastName }}, I want to tell u about {{ desc }}</p>
                 <a :href="link">translate to english</a>
+
+                <!-- list rendering -->
+                <ul>
+                    <li v-for="detail in details">{{ detail }}</li>
+                </ul>
+                <div v-for="variant in variants" :key="variant.variantId">
+                    <p>{{ variant.variantColor }}</p>
+                </div>
+
             </div>
         </div>
     </div>
