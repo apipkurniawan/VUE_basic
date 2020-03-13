@@ -17,24 +17,28 @@
             <div class="product-info">
 
                 <!--* conditional rendering -->
-                <!-- <p v-show="inStock">In Stock</p> -->
-                <p v-if="inventory > 10">In Stock </p>
-                <p v-else-if="inventory <= 10 && inventory > 0">Almost Sold Out!</p>
-                <p v-else>Out Of Stock</p>
+                <!-- ! contoh 1 -->
+                <!-- <p v-show="inStock">In Stock</!-->
+                <!-- <p v-if="inventory > 10">In Stock </p> -->
+                <!-- <p v-else-if="inventory <= 10 && inventory > 0">Almost Sold Out!</p> -->
+                <!-- <p v-else>Out Of Stock</p> -->
+                <!-- ! contoh 2 -->
+                <p v-if="inStock">In Stock </p>
+                <p v-else :class="{ outOfStock : !inStock }">Out Of Stock</p>
 
                 <!--* interpolation -->
-                <h1>{{ product }}</h1>
+                <h1>{{ title }}</h1>
                 <!-- <p>hallo my name is {{ firstName + ' ' + lastName }}, I want to tell u about {{ desc }}</p> -->
 
                 <!--* attribute binding -->
-                <!-- <a :href="link">translate to english</a> -->
+                <!-- <a :href=" link">translate to english</a> -->
 
                 <!--* list rendering, Class & Style Binding-->
                 <ul>
                     <li v-for="detail in details">{{ detail }}</li>
                 </ul>
-                <div class="color-box" v-for="variant in variants" :key="variant.variantId"
-                    :style="{ backgroundColor: variant.variantColor }" @mouseover="updateProduct(variant.variantImage)">
+                <div class="color-box" v-for="(variant, index) in variants" :key="variant.variantId"
+                    :style="{ backgroundColor: variant.variantColor }" @mouseover="updateProduct(index)">
                     <p>{{ variant.variantColor }}</p>
                 </div>
 
@@ -45,7 +49,8 @@
                 <!--! cara 1 -->
                 <!-- <button v-on:click="cart += 1">Add To Cart</button> -->
                 <!--! cara 2 -->
-                <button v-on:click="addToCart" :disabled="!inStock" :class="{ disableButton: !inStock }">Add To
+                <button v-on:click="addToCart" :disabled="!inStock" :class="{ disableButton: !inStock }">Add
+                    To
                     Cart</button>&nbsp;
                 <button v-on:click="cancelToCart">Cancel</button>
 
