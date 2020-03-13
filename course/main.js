@@ -4,6 +4,7 @@
 /* 3. Conditional Rendering */
 /* 4. List Rendering */
 /* 5. event handling */
+/* 6. Class & Style Binding */
 
 
 
