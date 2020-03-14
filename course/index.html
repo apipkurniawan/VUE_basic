@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
@@ -59,30 +60,23 @@
 
 
         <!-- todo  use component -->
-        <product :premium="premium" @add-to-cart="updateCart" @cancel-to-cart="cancelCart"></product>
         <div class="cart">
-            <p>Cart({{ cart }})</p>
             <p>Cart({{ cart.length }})</p>
         </div>
-        <product-detail></product-detail>
-        <div>
+
+        <product :premium="premium" @add-to-cart="updateCart" @cancel-to-cart="cancelCart"></product>
+
+        <!-- belum -->
+        <!-- <product-detail></product-detail> -->
+        <!-- <div>
             <h2>Reviews</h2>
-            <p v-if="!reviews.length">there are no reviews yet</p>
-            <ul>
-                <li v-for="review in reviews">
-                    <p>{{ review.name }}</p>
-                    <p>Rating : {{ review.rating }}</p>
-                    <p>{{ review.review }}</p>
-                </li>
-            </ul>
             <p v-if="errors.length">
                 <b>Please correct the following error(s) : </b>
                 <ul>
                     <li v-for="error in errors">{{ error }}</li>
                 </ul>
             </p>
-        </div>
-        <product-review @review-submitted="addReview"></product-review>
+        </div> -->
 
     </div>
 
