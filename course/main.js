@@ -1,4 +1,4 @@
-//* course beginner
+//* course beginner 1
 /* 1. Vue Instance */
 /* 2. Attribute Binding */
 /* 3. Conditional Rendering */
