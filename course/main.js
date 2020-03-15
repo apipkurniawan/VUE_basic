@@ -3,12 +3,12 @@
 /* 2. Attribute Binding */
 /* 3. Conditional Rendering */
 /* 4. List Rendering */
-/* 5. event handling */
+/* 5. Event Handling */
 /* 6. Class & Style Binding */
 /* 7. Computed Properties */
 /* 8. Components */
-/* 9. communicating events */
-/* 10. forms */
+/* 9. Communicating Events */
+/* 10. Forms */
 /* 10. Tabs */
 
 
