@@ -1,4 +1,4 @@
-//* course beginner 1
+//* course beginner (intro to vue.js)
 /* 1. Vue Instance */
 /* 2. Attribute Binding */
 /* 3. Conditional Rendering */
